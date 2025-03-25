@@ -1,34 +1,53 @@
 import { useState, useEffect } from "react";
-import { getGift } from "../helpers";
 
 export const useFetchGifs = (category) => {
   const [images, setImages] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
   const [error, setError] = useState(null);
 
-  const getImages = async () => {
+  useEffect(() => {
+    getFetch();
+  }, [category]);
+
+  const getFetch = async () => {
+    const API_KEY = import.meta.env.VITE_GIPHY_API_KEY;
+    const BASE_URL = import.meta.env.VITE_GIPHY_BASE_URL;
+    const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=10`;
+
+    setLoading(true);
+    setHasError(false);
+    setError(null);
+
     try {
-      setIsLoading(true);
-      setError(null);
+      const response = await fetch(URL);
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-      const newImages = await getGift(category);
+      const { data } = await response.json();
 
-      setImages(newImages);
-    } catch (err) {
-      console.error("Error fetching GIFs:", err);
-      setError("Failed to fetch GIFs. Please try again later.");
+      const images = data.map((img) => ({
+        id: img.id,
+        title: img.title || "No title",
+        url: img.images?.downsized_medium?.url || "",
+      }));
+
+      setImages(images);
+    } catch (error) {
+      console.error("Error:", error);
+      setImages([]);
+      setHasError(true);
+      setError(error.message);
     } finally {
-      setIsLoading(false);
+      setLoading(false);
     }
   };
-
-  useEffect(() => {
-    getImages();
-  }, [category]);
 
   return {
     images,
     isLoading,
+    hasError,
     error,
   };
 };

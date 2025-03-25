@@ -1,14 +1,14 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-export const AddCategory = ({ onNewCategory }) => {
+export const GifSearchBar = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState("");
 
-  const onInputChange = (event) => {
+  const handleInputChange = (event) => {
     setInputValue(event.target.value);
   };
 
-  const onSubmit = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
     if (inputValue.trim().length <= 1) return;
     onNewCategory(inputValue.trim());
@@ -16,17 +16,17 @@ export const AddCategory = ({ onNewCategory }) => {
   };
 
   return (
-    <form onSubmit={(event) => onSubmit(event)}>
+    <form onSubmit={(event) => handleSubmit(event)}>
       <input
         type="text"
         placeholder="Search Gif"
         value={inputValue}
-        onChange={onInputChange}
+        onChange={handleInputChange}
       />
     </form>
   );
 };
 
-AddCategory.propTypes = {
+GifSearchBar.propTypes = {
   onNewCategory: PropTypes.func.isRequired,
 };
