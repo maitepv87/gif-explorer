@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import { Grid, Typography, CircularProgress } from "@mui/material"; // Importamos Material UI
 import { GifItem } from "./GifItem";
 import { useFetchGifs } from "../hooks";
 
@@ -7,15 +8,21 @@ export const GifList = ({ category }) => {
 
   return (
     <>
-      <h3>{category}</h3>
+      <Typography variant="h4" gutterBottom>
+        {category}
+      </Typography>
 
-      {isLoading && <h2>Cargando...</h2>}
-
-      <div className="card-grid">
-        {images.map((image) => (
-          <GifItem key={image.id} image={image} />
-        ))}
-      </div>
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        <Grid container spacing={3}>
+          {images.map((image) => (
+            <Grid item xs={12} sm={6} md={4} key={image.id}>
+              <GifItem image={image} />
+            </Grid>
+          ))}
+        </Grid>
+      )}
     </>
   );
 };

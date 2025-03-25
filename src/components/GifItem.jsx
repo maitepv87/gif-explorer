@@ -1,11 +1,21 @@
 import PropTypes from "prop-types";
+import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 export const GifItem = ({ image }) => {
   return (
-    <div className="card">
-      <img src={image.url} alt={image.title || "GIF"} />
-      <p>{image.title || "No title available"}</p>
-    </div>
+    <Card>
+      <CardMedia
+        component="img"
+        alt={image.title || "GIF"}
+        height="200"
+        image={image.url}
+      />
+      <CardContent>
+        <Typography variant="caption" component="div">
+          {image.title || "No title available"}
+        </Typography>
+      </CardContent>
+    </Card>
   );
 };
 

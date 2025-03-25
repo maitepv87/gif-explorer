@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import { TextField } from "@mui/material";
 
 export const GifSearchBar = ({ onNewCategory }) => {
   const [inputValue, setInputValue] = useState("");
@@ -16,10 +17,11 @@ export const GifSearchBar = ({ onNewCategory }) => {
   };
 
   return (
-    <form onSubmit={(event) => handleSubmit(event)}>
-      <input
-        type="text"
-        placeholder="Search Gif"
+    <form onSubmit={handleSubmit}>
+      <TextField
+        label="Search GIFs from Giphy"
+        variant="outlined"
+        fullWidth
         value={inputValue}
         onChange={handleInputChange}
       />

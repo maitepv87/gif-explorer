@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Container, Typography } from "@mui/material";
 import { GifSearchBar, GifList } from "./components";
 
 export const GifExplorerApp = () => {
@@ -12,13 +13,17 @@ export const GifExplorerApp = () => {
 
   return (
     <>
-      <h1>GIF Explorer</h1>
+      <Container maxWidth="lg" sx={{ marginTop: 4 }}>
+        <Typography variant="h3" align="left" gutterBottom>
+          GIF Explorer
+        </Typography>
 
-      <GifSearchBar onNewCategory={handleAddCategory} />
+        <GifSearchBar onNewCategory={handleAddCategory} />
 
-      {categories.map((category) => {
-        return <GifList key={category} category={category} />;
-      })}
+        {categories.map((category) => {
+          return <GifList key={category} category={category} />;
+        })}
+      </Container>
     </>
   );
 };
