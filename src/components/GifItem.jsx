@@ -3,15 +3,24 @@ import { Card, CardContent, CardMedia, Typography } from "@mui/material";
 
 export const GifItem = ({ image }) => {
   return (
-    <Card>
+    <Card
+      sx={{
+        borderRadius: 2,
+        boxShadow: 3,
+      }}
+    >
       <CardMedia
         component="img"
         alt={image.title || "GIF"}
         height="200"
         image={image.url}
+        sx={{ objectFit: "cover" }}
       />
-      <CardContent>
-        <Typography variant="caption" component="div">
+      <CardContent sx={{ bgcolor: "#fce4ec", textAlign: "center" }}>
+        <Typography
+          variant="caption"
+          sx={{ fontWeight: "bold", color: "#7B1FA2" }}
+        >
           {image.title || "No title available"}
         </Typography>
       </CardContent>
