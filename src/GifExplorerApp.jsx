@@ -23,6 +23,7 @@ export const GifExplorerApp = () => {
     >
       <Container
         maxWidth="md"
+        tabIndex="0"
         sx={{
           backgroundColor: "white",
           borderRadius: 3,
@@ -35,6 +36,8 @@ export const GifExplorerApp = () => {
           variant="h3"
           align="center"
           gutterBottom
+          role="heading"
+          aria-level="1"
           sx={{ color: "#7B1FA2", fontWeight: "bold" }}
         >
           GIF Explorer
@@ -45,7 +48,10 @@ export const GifExplorerApp = () => {
           elevation={3}
           sx={{ padding: 2, borderRadius: 2, marginBottom: 3 }}
         >
-          <GifSearchBar onNewCategory={handleAddCategory} />
+          <GifSearchBar
+            onNewCategory={handleAddCategory}
+            aria-label="Search for GIFs"
+          />
         </Paper>
 
         {/* Categories */}

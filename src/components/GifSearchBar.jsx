@@ -17,13 +17,17 @@ export const GifSearchBar = ({ onNewCategory }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} role="search" aria-live="polite">
       <TextField
         label="Search GIFs from Giphy"
+        aria-label="Enter a keyword to search for GIFs"
+        aria-live="polite"
+        role="searchbox"
         variant="outlined"
         fullWidth
         value={inputValue}
         onChange={handleInputChange}
+        tabIndex="0"
         sx={{
           "& .MuiOutlinedInput-root": {
             borderRadius: 2,

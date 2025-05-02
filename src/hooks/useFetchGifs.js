@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { getFetch } from "../api/GifApi";
 
 export const useFetchGifs = (category) => {
   const [images, setImages] = useState([]);
@@ -7,38 +8,22 @@ export const useFetchGifs = (category) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getFetch();
+    handleFetchData();
   }, [category]);
 
-  const getFetch = async () => {
-    const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-    const API_KEY = import.meta.env.VITE_API_KEY;
-    const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=10`;
-
+  const handleFetchData = async () => {
     setLoading(true);
     setHasError(false);
     setError(null);
 
     try {
-      const response = await fetch(URL);
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
-      const { data } = await response.json();
-
-      const images = data.map((img) => ({
-        id: img.id,
-        title: img.title || "No title",
-        url: img.images?.downsized_medium?.url || "",
-      }));
-
+      const images = await getFetch(category);
       setImages(images);
     } catch (error) {
-      console.error("Error:", error);
-      setImages([]);
+      console.error("Error fetching GIFs:", error);
       setHasError(true);
       setError(error.message);
+      setImages([]);
     } finally {
       setLoading(false);
     }
