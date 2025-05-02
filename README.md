@@ -1,27 +1,40 @@
-# GifExplorerApp  
+# Gif Explorer App  
+*React-based web application for browsing GIFs using the Giphy API.*
 
-**GifExplorerApp** is a web application that allows users to search and explore GIFs easily using the **Giphy API**. It is built with **React** and styled with **Material UI** for a modern and visually appealing interface.  
+---
+
+## About  
+Gif Explorer App is a practical frontend project built with **React** and **Material UI**, designed to enhance understanding of **API integration, state management, and accessibility practices**. It connects with the **Giphy API** to allow users to search and explore GIFs dynamically while maintaining a clean and scalable architecture.
 
 ---
 
 ## Features  
-✔️ Fast GIF search with an input field.  
-✔️ Results displayed in a responsive grid layout.  
-✔️ Smooth visual effects with **Material UI**.  
-✔️ Responsive design for both desktop and mobile devices.  
-✔️ Loading indicator while fetching GIFs.  
+
+### State and Data Handling  
+- Local state management with React hooks  
+- Optimized API calls using a custom hook (`useFetchGifs`)  
+- Error handling and feedback for failed requests  
+
+### UI and Functionality  
+- **Search bar** for GIF queries  
+- **Dynamic list rendering** using React components  
+- **Responsive design**, ensuring usability across devices  
+- **Loading indicators** for better user experience  
+- **Accessibility improvements**, including ARIA attributes  
 
 ---
 
-## Technologies Used  
-- **React**: For building the UI.  
-- **Material UI**: For styling and UI components.  
-- **Fetch API**: For retrieving data from Giphy.  
-- **Vite**: For a fast development environment.  
+## Tech Stack  
+- **React** – Component-based UI development  
+- **Material UI** – Prebuilt UI components with responsive styling  
+- **JavaScript (ES6+)** – Modern coding standards  
+- **Fetch API** – Efficient data retrieval from Giphy  
+- **Vite** – Fast development and bundling  
 
 ---
 
-## Prerequisites  
-Before running this project, make sure you have:  
-- **Node.js** (v18 or later recommended) – [Download here](https://nodejs.org/)  
-- **npm** or **yarn** package manager  
+## Installation and Usage  
+
+1. Clone this repository:  
+   ```bash
+   git clone https://github.com/maitepv87/gif-explorer-app.git
