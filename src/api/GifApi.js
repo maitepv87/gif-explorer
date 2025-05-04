@@ -1,7 +1,7 @@
-export const getFetch = async (category) => {
+export const getFetch = async (category, limit) => {
   const BASE_URL = import.meta.env.VITE_API_BASE_URL;
   const API_KEY = import.meta.env.VITE_API_KEY;
-  const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=10`;
+  const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=${limit}`;
 
   try {
     const response = await fetch(URL);

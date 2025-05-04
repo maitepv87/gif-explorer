@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 import PropTypes from "prop-types";
-import { Grid, Typography, CircularProgress, Box } from "@mui/material";
-import { GifItem } from "./GifItem";
-import { useFetchGifs } from "../hooks";
+import { Grid, Typography, Box } from "@mui/material";
+import { useFetchGifs } from "../../hooks";
+import { GifItem, LoadingSpinner } from "..";
 
 export const GifList = ({ category }) => {
-  const { images, isLoading } = useFetchGifs(category);
+  const { images, isLoading } = useFetchGifs(category,12);
 
   const memoizedImages = useMemo(() => images, [images]);
 
@@ -20,13 +20,7 @@ export const GifList = ({ category }) => {
       </Typography>
 
       {isLoading ? (
-        <Box
-          sx={{ display: "flex", justifyContent: "center", mt: 2 }}
-          role="status"
-          aria-live="assertive"
-        >
-          <CircularProgress sx={{ color: "#7B1FA2" }} />
-        </Box>
+        <LoadingSpinner />
       ) : (
         <Grid
           container

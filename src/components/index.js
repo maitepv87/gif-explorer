@@ -1,3 +1,4 @@
-export * from "./GifSearchBar";
-export * from "./GifList";
-export * from "./GifItem";
+export * from "./gifSearchBar/GifSearchBar";
+export * from "./gifList/GifList";
+export * from "./gifItem/GifItem";
+export * from "./loadingSpinner/LoadingSpinner";

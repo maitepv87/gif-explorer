@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { getFetch } from "../api/GifApi";
 
-export const useFetchGifs = (category) => {
+export const useFetchGifs = (category, limit = 12) => {
   const [images, setImages] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -17,7 +17,7 @@ export const useFetchGifs = (category) => {
     setError(null);
 
     try {
-      const images = await getFetch(category);
+      const images = await getFetch(category, limit);
       setImages(images);
     } catch (error) {
       console.error("Error fetching GIFs:", error);
