@@ -1,13 +1,10 @@
-import { useMemo } from "react";
 import PropTypes from "prop-types";
 import { Grid, Typography, Box } from "@mui/material";
-import { useFetchGifs } from "../../hooks";
+import { useFetchData } from "../../hooks";
 import { GifItem, LoadingSpinner } from "..";
 
 export const GifList = ({ category }) => {
-  const { images, isLoading } = useFetchGifs(category,12);
-
-  const memoizedImages = useMemo(() => images, [images]);
+  const { images, isLoading, hasError, error } = useFetchData(category, 12);
 
   return (
     <Box sx={{ mt: 4, p: 3, borderRadius: 2, bgcolor: "#fce4ec" }}>
@@ -19,6 +16,14 @@ export const GifList = ({ category }) => {
         {category}
       </Typography>
 
+      {hasError ? (
+        <Typography sx={{ color: "red" }}>Error: {error}</Typography>
+      ) : images.length === 0 && !isLoading ? (
+        <Typography sx={{ color: "gray", textAlign: "center" }}>
+          No GIFs found. Try a different search.
+        </Typography>
+      ) : null}
+
       {isLoading ? (
         <LoadingSpinner />
       ) : (
@@ -29,16 +34,8 @@ export const GifList = ({ category }) => {
           aria-live="polite"
           role="list"
         >
-          {memoizedImages.map((image) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              key={image.id}
-              role="listitem"
-              tabIndex="0"
-            >
+          {images.map((image) => (
+            <Grid item xs={12} sm={6} md={4} key={image.id}>
               <GifItem image={image} />
             </Grid>
           ))}

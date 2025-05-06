@@ -1,0 +1,54 @@
+import { useState, useEffect } from "react";
+
+export const useFetchData = (category, limit = 12) => {
+  const [images, setImages] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+  const [hasError, setHasError] = useState(false);
+  const [error, setError] = useState(null);
+
+  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const API_KEY = import.meta.env.VITE_API_KEY;
+  const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=${limit}`;
+
+  useEffect(() => {
+    setLoading(true);
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch(URL);
+
+        if (!response.ok) {
+          throw new Error(`Server error: ${response.status}`);
+        }
+
+        const { data } = await response.json();
+
+        const images = data.map((img) => ({
+          id: img.id,
+          title: img.title || "No title",
+          url: img.images?.downsized_medium?.url || "",
+        }));
+
+        setImages(images);
+        setHasError(false);
+        setError(null);
+      } catch (error) {
+        console.error(`API Fetch Error: ${error.message}`, error);
+        setImages([]);
+        setHasError(true);
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [category]);
+
+  return {
+    images,
+    isLoading,
+    hasError,
+    error,
+  };
+};
