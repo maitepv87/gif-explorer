@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import { Grid, Typography, Box } from "@mui/material";
-import { useFetchData } from "../../hooks";
-import { GifItem, LoadingSpinner } from "..";
+import { useFetchGifs } from "../../hooks";
+import { LoadingSpinner } from "../../../components";
+import { GifItem } from "../";
 
-export const GifList = ({ category }) => {
-  const { images, isLoading, hasError, error } = useFetchData(category, 12);
+export const GifGrid = ({ category }) => {
+  const { images, isLoading, hasError, error } = useFetchGifs(category, 12);
 
   return (
     <Box sx={{ mt: 4, p: 3, borderRadius: 2, bgcolor: "#fce4ec" }}>
@@ -45,6 +46,6 @@ export const GifList = ({ category }) => {
   );
 };
 
-GifList.propTypes = {
+GifGrid.propTypes = {
   category: PropTypes.string.isRequired,
 };

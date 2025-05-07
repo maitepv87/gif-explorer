@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
+import { formatGifData } from "../utils";
 
-export const useFetchData = (category, limit = 12) => {
+export const useFetchGifs = (category, limit = 12) => {
   const [images, setImages] = useState([]);
   const [isLoading, setLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
@@ -23,13 +24,9 @@ export const useFetchData = (category, limit = 12) => {
 
         const { data } = await response.json();
 
-        const images = data.map((img) => ({
-          id: img.id,
-          title: img.title || "No title",
-          url: img.images?.downsized_medium?.url || "",
-        }));
+        const formattedImages = data.map(formatGifData);
 
-        setImages(images);
+        setImages(formattedImages);
         setHasError(false);
         setError(null);
       } catch (error) {

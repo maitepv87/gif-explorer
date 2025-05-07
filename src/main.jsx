@@ -1,9 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { GifExplorerApp } from "./GifExplorerApp";
+import { App } from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <GifExplorerApp />
+    <App />
   </React.StrictMode>
 );
