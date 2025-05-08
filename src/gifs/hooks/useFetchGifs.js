@@ -12,8 +12,6 @@ export const useFetchGifs = (category, limit = 12) => {
   const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=${limit}`;
 
   useEffect(() => {
-    setLoading(true);
-
     const fetchData = async () => {
       try {
         const response = await fetch(URL);
@@ -27,13 +25,9 @@ export const useFetchGifs = (category, limit = 12) => {
         const formattedImages = data.map(formatGifData);
 
         setImages(formattedImages);
-        setHasError(false);
-        setError(null);
       } catch (error) {
-        console.error(`API Fetch Error: ${error.message}`, error);
-        setImages([]);
         setHasError(true);
-        setError(error.message);
+        setError(error instanceof Error ? error.message : "Unknown error");
       } finally {
         setLoading(false);
       }
