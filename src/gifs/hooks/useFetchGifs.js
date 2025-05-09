@@ -7,27 +7,24 @@ export const useFetchGifs = (category, limit = 12) => {
   const [hasError, setHasError] = useState(false);
   const [error, setError] = useState(null);
 
-  const BASE_URL = import.meta.env.VITE_API_BASE_URL;
-  const API_KEY = import.meta.env.VITE_API_KEY;
-  const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=${limit}`;
-
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(URL);
+        const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+        const API_KEY = import.meta.env.VITE_API_KEY;
+        const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${category}&limit=${limit}`;
 
-        if (!response.ok) {
-          throw new Error(`Server error: ${response.status}`);
-        }
+        const response = await fetch(URL);
+        if (!response.ok) throw new Error(`Server error: ${response.status}`);
 
         const { data } = await response.json();
 
         const formattedImages = data.map(formatGifData);
 
         setImages(formattedImages);
-      } catch (error) {
+      } catch (err) {
         setHasError(true);
-        setError(error instanceof Error ? error.message : "Unknown error");
+        setError(err instanceof Error ? err.message : "Unknown error");
       } finally {
         setLoading(false);
       }
@@ -36,10 +33,5 @@ export const useFetchGifs = (category, limit = 12) => {
     fetchData();
   }, [category]);
 
-  return {
-    images,
-    isLoading,
-    hasError,
-    error,
-  };
+  return { images, isLoading, hasError, error };
 };

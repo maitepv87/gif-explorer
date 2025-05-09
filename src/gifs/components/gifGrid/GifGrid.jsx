@@ -4,9 +4,7 @@ import { useFetchGifs } from "../../hooks";
 import { LoadingSpinner } from "../../../components";
 import { GifItem } from "../";
 
-
 export const GifGrid = ({ category }) => {
-  
   const { images, isLoading, hasError, error } = useFetchGifs(category, 12);
 
   return (
