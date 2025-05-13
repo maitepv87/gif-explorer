@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Container, Typography, Paper, Box } from "@mui/material";
-import { GifSearchBar, GifGrid } from "../gifs/components";
+import { GifSearchBar, GifList } from "../gifs/components";
 
 export const GifExplorerPage = () => {
   const [categories, setCategories] = useState([]);
@@ -41,9 +41,9 @@ export const GifExplorerPage = () => {
           <GifSearchBar onNewCategory={handleAddCategory} />
         </Paper>
 
-        {/* Render multiple GifGrids for each category */}
+        {/* Render multiple GifList for each category */}
         {categories.map((category) => (
-          <GifGrid key={category} category={category} />
+          <GifList key={category} category={category} />
         ))}
       </Container>
     </Box>

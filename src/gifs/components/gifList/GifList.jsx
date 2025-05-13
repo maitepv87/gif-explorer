@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import { Grid, Typography, Box } from "@mui/material";
-import { useFetchGifs } from "../../hooks";
+import { useFetchGifs } from "../../../hooks";
 import { LoadingSpinner } from "../../../components";
-import { GifItem } from "../";
+import { GifItem } from "..";
 
-export const GifGrid = ({ category }) => {
+export const GifList = ({ category }) => {
   const { images, isLoading, hasError, error } = useFetchGifs(category, 12);
 
   return (
@@ -46,6 +46,6 @@ export const GifGrid = ({ category }) => {
   );
 };
 
-GifGrid.propTypes = {
+GifList.propTypes = {
   category: PropTypes.string.isRequired,
 };
