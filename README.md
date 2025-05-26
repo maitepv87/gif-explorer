@@ -1,40 +1,31 @@
-# Gif Explorer App  
-*React-based web application for browsing GIFs using the Giphy API.*
+# React-Fetch-Demo-GiphyAPI  
 
----
+## Description  
+React-Fetch-Demo-GiphyAPI is a testing lab built with **React**, **Material UI**, and **Fetch API**, designed to explore efficient API integration and state management. This project allows hands-on experimentation with:
 
-## About  
-Gif Explorer App is a practical frontend project built with **React** and **Material UI**, designed to enhance understanding of **API integration, state management, and accessibility practices**. It connects with the **Giphy API** to allow users to search and explore GIFs dynamically while maintaining a clean and scalable architecture.
+- Fetching GIFs dynamically from the **Giphy API**  
+- Managing state using React hooks and reusable logic  
+- Implementing **a custom hook (`useFetchGifs`)** for API requests  
+- Enhancing user experience with accessibility features  
 
----
+It serves as a structured sandbox for understanding React’s data-fetching patterns while maintaining modular architecture.
 
-## Features  
-
-### State and Data Handling  
-- Local state management with React hooks  
-- Optimized API calls using a custom hook (`useFetchGifs`)  
-- Error handling and feedback for failed requests  
-
-### UI and Functionality  
-- **Search bar** for GIF queries  
-- **Dynamic list rendering** using React components  
-- **Responsive design**, ensuring usability across devices  
-- **Loading indicators** for better user experience  
-- **Accessibility improvements**, including ARIA attributes  
-
----
-
-## Tech Stack  
+## Technologies Used  
 - **React** – Component-based UI development  
-- **Material UI** – Prebuilt UI components with responsive styling  
-- **JavaScript (ES6+)** – Modern coding standards  
+- **Vite** – Fast build tool and development environment  
+- **Material UI** – Prebuilt UI components for responsive styling  
 - **Fetch API** – Efficient data retrieval from Giphy  
-- **Vite** – Fast development and bundling  
+- **PropTypes** – Runtime validation for React components  
+- **CSS** – Ensuring clean and accessible UI  
 
----
+## Getting Started  
 
-## Installation and Usage  
+### Installation & Setup  
+To run the project locally, follow these steps:
 
-1. Clone this repository:  
-   ```bash
-   git clone https://github.com/maitepv87/gif-explorer-app.git
+#### Clone the repository  
+```bash
+git clone https://github.com/maitepv87/react-fetch-demo-giphyapi.git
+cd react-fetch-demo-giphyapi
+npm install
+npm run dev
