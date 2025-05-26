@@ -1,7 +1,7 @@
-# React-Fetch-Demo-GiphyAPI  
+# React-Fetch-GiphyAPI  
 
 ## Description  
-React-Fetch-Demo-GiphyAPI is a testing lab built with **React**, **Material UI**, and **Fetch API**, designed to explore efficient API integration and state management. This project allows hands-on experimentation with:
+React-Fetch-GiphyAPI is a testing lab built with **React**, **Material UI**, and **Fetch API**, designed to explore efficient API integration and state management. This project allows hands-on experimentation with:
 
 - Fetching GIFs dynamically from the **Giphy API**  
 - Managing state using React hooks and reusable logic  
@@ -25,7 +25,7 @@ To run the project locally, follow these steps:
 
 #### Clone the repository  
 ```bash
-git clone https://github.com/maitepv87/react-fetch-demo-giphyapi.git
-cd react-fetch-demo-giphyapi
+git clone https://github.com/maitepv87/react-fetch-giphyapi.git
+cd react-fetch-giphyapi
 npm install
 npm run dev
