@@ -1,8 +1,7 @@
 import PropTypes from "prop-types";
 import { Grid, Typography, Box } from "@mui/material";
-import { useFetchGifs } from "../../../hooks";
-import { LoadingSpinner } from "../../../components";
-import { GifItem } from "..";
+import { useFetchGifs } from "../hooks";
+import { LoadingSpinner, GifItem } from "./";
 
 export const GifList = ({ category }) => {
   const { images, isLoading, hasError, error } = useFetchGifs(category, 12);

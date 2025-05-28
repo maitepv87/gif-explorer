@@ -8,6 +8,8 @@ export const useFetchGifs = (category, limit = 12) => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    if (!category) return;
+
     const fetchData = async () => {
       try {
         const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -20,7 +22,6 @@ export const useFetchGifs = (category, limit = 12) => {
         const { data } = await response.json();
 
         const formattedImages = data.map(formatGifData);
-
         setImages(formattedImages);
       } catch (err) {
         setHasError(true);

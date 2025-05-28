@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Container, Typography, Paper, Box } from "@mui/material";
-import { GifSearchBar, GifList } from "../gifs/components";
+import { GifSearchBar, GifList } from "../components";
 
-export const GifExplorerPage = () => {
+export const Home = () => {
   const [categories, setCategories] = useState([]);
 
   const handleAddCategory = (newCategory) => {

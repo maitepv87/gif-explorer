@@ -1,9 +1,9 @@
-import { GifExplorerPage } from "./pages";
+import { Home } from "./pages";
 
 export const App = () => {
   return (
     <>
-      <GifExplorerPage />
+      <Home />
     </>
   );
 };

@@ -1,1 +1,1 @@
-export * from "./GifExplorerPage";
+export * from "./Home";
