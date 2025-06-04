@@ -4,7 +4,7 @@ import { useFetchGifs } from "../hooks";
 import { LoadingSpinner, GifItem } from "./";
 
 export const GifList = ({ category }) => {
-  const { images, isLoading, hasError, error } = useFetchGifs(category, 12);
+  const { images, isLoading, error } = useFetchGifs(category, 12);
 
   return (
     <Box sx={{ mt: 4, p: 3, borderRadius: 2, bgcolor: "#fce4ec" }}>
@@ -13,10 +13,10 @@ export const GifList = ({ category }) => {
         gutterBottom
         sx={{ color: "#7B1FA2", fontWeight: "bold", textAlign: "center" }}
       >
-        {category}
+        {category.charAt(0).toUpperCase() + category.slice(1)}
       </Typography>
 
-      {hasError ? (
+      {error ? (
         <Typography sx={{ color: "red" }}>Error: {error}</Typography>
       ) : images.length === 0 && !isLoading ? (
         <Typography sx={{ color: "gray", textAlign: "center" }}>

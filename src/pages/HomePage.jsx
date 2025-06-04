@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Container, Typography, Paper, Box } from "@mui/material";
 import { GifSearchBar, GifList } from "../components";
 
-export const Home = () => {
+export const HomePage = () => {
   const [categories, setCategories] = useState([]);
 
   const handleAddCategory = (newCategory) => {
