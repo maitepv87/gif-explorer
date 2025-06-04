@@ -17,7 +17,7 @@ export const GifSearchBar = ({ onNewCategory }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} style={{ marginBottom: "16px" }}>
       <TextField
         label="Search GIFs from Giphy"
         placeholder="Type a keyword like cats, memes, dancing..."
