@@ -46,7 +46,11 @@ export const SearchBar = ({ onSubmit }) => {
             <Typography
               variant="h4"
               fontWeight={700}
-              color={theme.palette.text.primary}
+              color={
+                theme.palette.mode === "light"
+                  ? "#7b61ff"
+                  : theme.palette.text.primary
+              }
             >
               GIF Explorer
             </Typography>
