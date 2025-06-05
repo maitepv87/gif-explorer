@@ -1,5 +1,4 @@
 import { Box } from "@mui/material";
-import { useState, useRef, useCallback, useEffect } from "react";
 import {
   SearchBar,
   GifGrid,
@@ -7,34 +6,25 @@ import {
   LoadingSpinner,
   ErrorHandler,
 } from "../components";
-import { useFetchGifs } from "../hooks";
+import { useGifContext } from "../context/GifContext";
+import { fetchGifs } from "../context/actions";
 
 export const HomePage = () => {
-  const [inputValue, setInputValue] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
-  const [favorites, setFavorites] = useState([]);
-  const { gifs, isLoading, error } = useFetchGifs(searchTerm, 12);
+  const { state, dispatch } = useGifContext();
+  const { searchTerm, gifs, isLoading, error, favorites } = state;
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    const trimmed = inputValue.trim();
-    if (trimmed.length <= 1) return;
-    setSearchTerm(trimmed);
+    fetchGifs(dispatch, searchTerm);
   };
 
   const toggleFavorite = (id) => {
-    setFavorites((prev) =>
-      prev.includes(id) ? prev.filter((fid) => fid !== id) : [...prev, id]
-    );
+    dispatch({ type: "TOGGLE_FAVORITE", payload: id });
   };
 
   return (
     <Box sx={{ bgcolor: "#f3f0ff", minHeight: "100vh" }}>
-      <SearchBar
-        inputValue={inputValue}
-        setInputValue={setInputValue}
-        onSubmit={handleSubmit}
-      />
+      <SearchBar onSubmit={handleSubmit} />
 
       <ErrorHandler error={error} />
 

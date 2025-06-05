@@ -6,8 +6,12 @@ import {
   Typography,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
+import { useGifContext } from "../context/GifContext";
 
-export const SearchBar = ({ inputValue, setInputValue, onSubmit }) => {
+export const SearchBar = ({ onSubmit }) => {
+  const { state, dispatch } = useGifContext();
+  const { searchTerm } = state;
+
   return (
     <form onSubmit={onSubmit}>
       <Box
@@ -35,8 +39,10 @@ export const SearchBar = ({ inputValue, setInputValue, onSubmit }) => {
             fullWidth
             variant="outlined"
             placeholder="Search for GIFs..."
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
+            value={searchTerm}
+            onChange={(e) =>
+              dispatch({ type: "SET_SEARCH_TERM", payload: e.target.value })
+            }
             sx={{
               bgcolor: "#fff",
               borderRadius: 2,
