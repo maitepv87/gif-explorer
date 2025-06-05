@@ -1,31 +1,57 @@
-# React-Fetch-GiphyAPI  
+# GIF Explorer
 
-## Description  
-React-Fetch-GiphyAPI is a testing lab built with **React**, **Material UI**, and **Fetch API**, designed to explore efficient API integration and state management. This project allows hands-on experimentation with:
+## Description
 
-- Fetching GIFs dynamically from the **Giphy API**  
-- Managing state using React hooks and reusable logic  
-- Implementing **a custom hook (`useFetchGifs`)** for API requests  
-- Enhancing user experience with accessibility features  
+GIF Explorer is a responsive web application that allows users to search, view, and favorite animated GIFs using the Giphy API. Built with **React**, **Context API**, and **Material UI**, it offers a modern, interactive experience with features like persistent favorites and dark/light mode toggle.
 
-It serves as a structured sandbox for understanding React’s data-fetching patterns while maintaining modular architecture.
+This project demonstrates:
 
-## Technologies Used  
-- **React** – Component-based UI development  
-- **Vite** – Fast build tool and development environment  
-- **Material UI** – Prebuilt UI components for responsive styling  
-- **Fetch API** – Efficient data retrieval from Giphy  
-- **PropTypes** – Runtime validation for React components  
-- **CSS** – Ensuring clean and accessible UI  
+- Search functionality powered by **Giphy API**.
+- Displaying results in a responsive grid with favorite toggles.
+- Dark/light theme switch using a custom ThemeContext.
+- Modular architecture with clean separation of logic, UI, and state.
 
-## Getting Started  
+It is a great example of building a functional single-page app with state management via Context and custom hooks.
 
-### Installation & Setup  
+## Technologies Used
+
+- **React** – Component-based UI development
+- **Vite** – Fast build tool and development environment
+- **Material UI** – Prebuilt UI components for responsive styling
+- **Fetch API** – Efficient data retrieval from Giphy
+- **PropTypes** – Runtime validation for React components
+
+## Getting Started
+
+### Installation & Setup
+
 To run the project locally, follow these steps:
 
-#### Clone the repository  
+#### Clone the repository
+
 ```bash
-git clone https://github.com/maitepv87/react-fetch-giphyapi.git
-cd react-fetch-giphyapi
+git clone https://github.com/maitepv87/gif-explorer.git
+cd gif-explorer
+```
+
+#### Install dependencies
+
+```bash
 npm install
 npm run dev
+```
+
+#### Set up environment variables in a .env file
+
+```ini
+VITE_API_URL=https://api.giphy.com/v1/gifs
+VITE_API_KEY=your_giphy_api_key
+```
+
+#### Start the development server:
+
+```bash
+npm run dev
+```
+
+Then open http://localhost:3000 in your browser.
