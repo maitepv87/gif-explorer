@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import {
   SearchBar,
   GifGrid,
