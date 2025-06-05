@@ -38,7 +38,6 @@ cd gif-explorer
 
 ```bash
 npm install
-npm run dev
 ```
 
 #### Set up environment variables in a .env file
