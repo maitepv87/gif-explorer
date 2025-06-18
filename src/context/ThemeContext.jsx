@@ -26,12 +26,22 @@ export const ThemeProvider = ({ children }) => {
         palette: {
           mode,
           primary: {
-            main: "#7b61ff",
+            main: mode === "light" ? "#ff7b72" : "#ff5a5a",
+          },
+          secondary: {
+            main: mode === "light" ? "#5a67d8" : "#809bff",
           },
           background: {
-            default: mode === "light" ? "#f3f0ff" : "#121212",
-            paper: mode === "light" ? "#fff" : "#1e1e1e",
+            default: mode === "light" ? "#fffaf0" : "#121212",
+            paper: mode === "light" ? "#fffbec" : "#1e1e1e",
           },
+          text: {
+            primary: mode === "light" ? "#333" : "#fff",
+            secondary: mode === "light" ? "#ff5a5a" : "#ff8686",
+          },
+        },
+        transitions: {
+          duration: { standard: 300 },
         },
       }),
     [mode]

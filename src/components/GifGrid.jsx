@@ -3,8 +3,8 @@ import { GifCard } from "./";
 
 export const GifGrid = ({ gifs, favorites, toggleFavorite }) => {
   return (
-    <Container maxWidth="md" sx={{ mt: 3, pb: 8 }}>
-      <Grid container spacing={1}>
+    <Container maxWidth="md" sx={{ mt: 5, pb: 10 }}>
+      <Grid container spacing={2}>
         {gifs.map((gif) => {
           return (
             <Grid item xs={12} sm={6} md={4} key={gif.id}>

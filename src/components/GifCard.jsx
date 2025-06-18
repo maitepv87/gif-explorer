@@ -7,16 +7,19 @@ export const GifCard = ({ id, url, isFavorite, onToggle }) => {
 
   return (
     <Card
-      elevation={0}
+      elevation={1}
       sx={{
         borderRadius: 4,
         overflow: "hidden",
         boxShadow:
           theme.palette.mode === "light"
             ? "0 2px 8px rgba(0,0,0,0.05)"
-            : "0 2px 8px rgba(255 255 255 / 0.1)",
-        transition: "transform 0.3s ease",
-        "&:hover": { transform: "scale(1.02)" },
+            : "0 2px 8px rgba(255, 255, 255, 0.1)",
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        "&:hover": {
+          transform: "scale(1.05)",
+          boxShadow: "0px 6px 12px rgba(0, 0, 0, 0.1)",
+        },
       }}
     >
       <CardMedia
