@@ -1,56 +1,62 @@
-# GIF Explorer
+# **GIF Explorer**
 
-## Description
+## **Description**
 
-GIF Explorer is a responsive web application that allows users to search, view, and favorite animated GIFs using the Giphy API. Built with **React**, **Context API**, and **Material UI**, it offers a modern, interactive experience with features like persistent favorites and dark/light mode toggle.
+GIF Explorer is a **fast and interactive** React application that allows users to **search, view, and favorite animated GIFs** using the Giphy API. It follows best practices in frontend development, leveraging **Context API for global state management**, `useMemo` and `useCallback` for **performance optimization**, and **responsive UI components** built with Material UI.
 
-This project demonstrates:
+### **Key Features**
 
-- Search functionality powered by **Giphy API**.
-- Displaying results in a responsive grid with favorite toggles.
-- Dark/light theme switch using a custom ThemeContext.
-- Modular architecture with clean separation of logic, UI, and state.
+- **Efficient GIF search** powered by the Giphy API.
+- **Interactive GIF cards** with favorite toggles.
+- **Persistent favorites**, allowing users to save selections across sessions.
+- **Dark/light mode toggle** using ThemeContext.
+- **Optimized API handling** with Fetch.
+- **Modular and scalable architecture** for maintainability.
 
-It is a great example of building a functional single-page app with state management via Context and custom hooks.
+This project is part of my portfolio to **demonstrate clean, scalable frontend development** using modern React techniques.
 
-## Technologies Used
+## **Technologies Used**
 
-- **React** – Component-based UI development
-- **Vite** – Fast build tool and development environment
-- **Material UI** – Prebuilt UI components for responsive styling
-- **Fetch API** – Efficient data retrieval from Giphy
-- **PropTypes** – Runtime validation for React components
+- **React** – Component-based UI development.
+- **Context API** – Global state management without Redux.
+- **Vite** – Fast build tool and development environment.
+- **Material UI** – Prebuilt UI components for a modern and responsive design.
+- **Fetch API** – Efficient HTTP requests for fetching GIFs.
+- **PropTypes** – Runtime validation for React components.
+- **React.memo** – Prevents unnecessary re-renders in list components.
+- **useMemo & useCallback** – Improves performance by optimizing function execution.
 
-## Getting Started
+## **Getting Started**
 
-### Installation & Setup
+### **Installation & Setup**
 
-To run the project locally, follow these steps:
+Follow these steps to run the project locally:
 
-#### Clone the repository
+1. Clone the repository:
 
-```bash
-git clone https://github.com/maitepv87/gif-explorer.git
-cd gif-explorer
-```
+   ```bash
+   git clone https://github.com/maitepv87/gif-explorer.git
+   cd gif-explorer
 
-#### Install dependencies
+   ```
 
-```bash
-npm install
-```
+2. Install dependencie:
 
-#### Set up environment variables in a .env file
+   ```bash
+   npm install
+   ```
 
-```ini
-VITE_API_URL=https://api.giphy.com/v1/gifs
-VITE_API_KEY=your_giphy_api_key
-```
+3. Set up environment variables in a .env file:
 
-#### Start the development server:
+   ```ini
+   VITE_API_URL=https://api.giphy.com/v1/gifs
+   VITE_API_KEY=your_giphy_api_key
+   ```
 
-```bash
-npm run dev
-```
+4. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
 
 Then open http://localhost:3000 in your browser.
