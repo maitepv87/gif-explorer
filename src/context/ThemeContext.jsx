@@ -1,4 +1,10 @@
-import { createContext, useContext, useMemo, useState } from "react";
+import {
+  createContext,
+  useContext,
+  useMemo,
+  useCallback,
+  useState,
+} from "react";
 import {
   createTheme,
   ThemeProvider as MuiThemeProvider,
@@ -10,9 +16,9 @@ const ThemeContext = createContext();
 export const ThemeProvider = ({ children }) => {
   const [mode, setMode] = useState("light");
 
-  const toggleTheme = () => {
+  const toggleTheme = useCallback(() => {
     setMode((prev) => (prev === "light" ? "dark" : "light"));
-  };
+  }, []);
 
   const theme = useMemo(
     () =>

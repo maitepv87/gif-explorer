@@ -8,12 +8,17 @@ import {
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { useGifContext } from "../context/GifContext";
+import { setSearchTerm } from "../context/actions";
 import { ThemeToggle } from "./";
 
 export const SearchBar = ({ onSubmit }) => {
   const { state, dispatch } = useGifContext();
   const { searchTerm } = state;
   const theme = useTheme();
+
+  const handleSearchTermChange = (event) => {
+    setSearchTerm(dispatch, event.target.value);
+  };
 
   return (
     <form onSubmit={onSubmit}>
@@ -63,9 +68,10 @@ export const SearchBar = ({ onSubmit }) => {
             variant="outlined"
             placeholder="Search for GIFs..."
             value={searchTerm}
-            onChange={(e) =>
-              dispatch({ type: "SET_SEARCH_TERM", payload: e.target.value })
-            }
+            // onChange={(e) =>
+            //   dispatch({ type: "SET_SEARCH_TERM", payload: e.target.value })
+            // }
+            onChange={handleSearchTermChange}
             sx={{
               bgcolor:
                 theme.palette.mode === "light"

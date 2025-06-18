@@ -9,7 +9,7 @@ import {
   FavoritesModal,
 } from "../components";
 import { useGifContext } from "../context/GifContext";
-import { fetchGifs } from "../context/actions";
+import { fetchGifs, toggleFavorite } from "../context/actions";
 
 export const HomePage = () => {
   const { state, dispatch } = useGifContext();
@@ -22,8 +22,8 @@ export const HomePage = () => {
     fetchGifs(dispatch, searchTerm);
   };
 
-  const toggleFavorite = (id) => {
-    dispatch({ type: "TOGGLE_FAVORITE", payload: id });
+  const handleToggleFavorite = (id) => {
+    toggleFavorite(dispatch, id);
   };
 
   const favoriteGifs = gifs.filter((gif) => favorites.includes(gif.id));
@@ -52,7 +52,7 @@ export const HomePage = () => {
         <GifGrid
           gifs={gifs}
           favorites={favorites}
-          toggleFavorite={toggleFavorite}
+          toggleFavorite={handleToggleFavorite}
         />
       )}
 
