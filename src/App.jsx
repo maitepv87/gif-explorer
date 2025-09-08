@@ -3,7 +3,7 @@ import { Box } from "@mui/material";
 import { LoadingSpinner } from "./components";
 import { HomePage } from "./pages";
 import { fetchGifs } from "./context/actions";
-import { useGifContext } from "./context/GifContext";
+import { useGifContext } from "./context/useGifContext";
 
 export const App = () => {
   const { dispatch } = useGifContext();

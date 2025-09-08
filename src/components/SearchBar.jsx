@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
-import { useGifContext } from "../context/GifContext";
+import { useGifContext } from "../context/useGifContext";
 import { setSearchTerm } from "../context/actions";
 import { ThemeToggle } from "./";
 

@@ -1,10 +1,11 @@
 import { formatGifData } from "../../utils";
+import { ACTION_TYPES } from "../actionTypes";
 
 export const fetchGifs = async (dispatch, searchTerm) => {
   const term = searchTerm.trim();
   if (term.length <= 1) return;
 
-  dispatch({ type: "SET_LOADING", payload: true });
+  dispatch({ type: ACTION_TYPES.FETCH_STARTED, payload: true });
 
   try {
     const BASE_URL = import.meta.env.VITE_API_BASE_URL;
@@ -12,20 +13,17 @@ export const fetchGifs = async (dispatch, searchTerm) => {
     const sanitized = encodeURIComponent(term.toLowerCase());
     const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${sanitized}&limit=12`;
 
-    const res = await fetch(URL);
-    if (!res.ok) throw new Error("Error fetching data");
+    const response = await fetch(URL);
+    if (!response.ok) throw new Error("Error fetching data");
 
-    const { data } = await res.json();
+    const { data } = await response.json();
     const formatted = data.map(formatGifData);
 
-    dispatch({ type: "SET_GIFS", payload: formatted });
-    dispatch({ type: "SET_ERROR", payload: null });
-  } catch (err) {
+    dispatch({ type: ACTION_TYPES.FETCH_SUCCEEDED, payload: formatted });
+  } catch (error) {
     dispatch({
-      type: "SET_ERROR",
-      payload: err instanceof Error ? err.message : "Unknown error",
+      type: ACTION_TYPES.FETCH_FAILED,
+      payload: error instanceof Error ? error.message : "Unknown error",
     });
-  } finally {
-    dispatch({ type: "SET_LOADING", payload: false });
   }
 };

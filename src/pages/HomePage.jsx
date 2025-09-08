@@ -8,7 +8,7 @@ import {
   ErrorHandler,
   FavoritesModal,
 } from "../components";
-import { useGifContext } from "../context/GifContext";
+import { useGifContext } from "../context/useGifContext";
 import { fetchGifs, toggleFavorite } from "../context/actions";
 
 export const HomePage = () => {
