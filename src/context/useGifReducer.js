@@ -7,7 +7,6 @@ const initialState = {
   gifs: [],
   isLoading: false,
   error: null,
-  favorites: [],
 };
 
 // Reducer to handle async lifecycle: start, success, error, reset",
@@ -27,16 +26,6 @@ const reducer = (state, action) => {
 
     case ACTION_TYPES.RESET_STATE:
       return initialState;
-
-    case ACTION_TYPES.TOGGLE_FAVORITE:
-      const id = action.payload;
-      const isFav = state.favorites.includes(id);
-      return {
-        ...state,
-        favorites: isFav
-          ? state.favorites.filter((fid) => fid !== id)
-          : [...state.favorites, id],
-      };
 
     default:
       return state;

@@ -1,6 +1,7 @@
 import { Snackbar, Alert } from "@mui/material";
 import { useState, useEffect, useMemo } from "react";
 import { useTheme } from "@mui/material/styles";
+import { styles } from "./ErrorHandler.styles";
 
 export const ErrorHandler = ({ error }) => {
   const theme = useTheme();
@@ -23,15 +24,7 @@ export const ErrorHandler = ({ error }) => {
       onClose={handleClose}
       anchorOrigin={{ vertical: "top", horizontal: "center" }}
     >
-      <Alert
-        onClose={handleClose}
-        severity="error"
-        sx={{
-          width: "100%",
-          bgcolor: theme.palette.error.main,
-          color: theme.palette.error.contrastText,
-        }}
-      >
+      <Alert onClose={handleClose} severity="error" sx={styles.alert(theme)}>
         {errorMessage}
       </Alert>
     </Snackbar>
