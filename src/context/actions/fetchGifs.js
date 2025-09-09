@@ -10,8 +10,14 @@ export const fetchGifs = async (dispatch, searchTerm) => {
   try {
     const BASE_URL = import.meta.env.VITE_API_BASE_URL;
     const API_KEY = import.meta.env.VITE_API_KEY;
-    const sanitized = encodeURIComponent(term.toLowerCase());
-    const URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${sanitized}&limit=25`;
+    let URL;
+
+    if (term.toLowerCase() === "trending") {
+      URL = `${BASE_URL}/trending?api_key=${API_KEY}&limit=25`;
+    } else {
+      const sanitized = encodeURIComponent(term.toLowerCase());
+      URL = `${BASE_URL}/search?api_key=${API_KEY}&q=${sanitized}&limit=25`;
+    }
 
     const response = await fetch(URL);
     if (!response.ok) throw new Error("Error fetching data");

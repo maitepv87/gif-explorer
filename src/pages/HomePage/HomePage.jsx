@@ -1,30 +1,24 @@
 import { Box } from "@mui/material";
 import {
-  SearchBar,
   GifGrid,
   LoadingSpinner,
   ErrorHandler,
+  Header,
 } from "../../components";
 import { useGifContext } from "../../context/useGifContext";
-import { fetchGifs } from "../../context/actions";
 import { styles } from "./HomePage.styles";
 
 export const HomePage = () => {
-  const { state, dispatch } = useGifContext();
-  const { searchTerm, gifs, isLoading, error } = state;
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    fetchGifs(dispatch, searchTerm);
-  };
+  const { state } = useGifContext();
+  const { isLoading, error } = state;
 
   return (
     <Box sx={styles.wrapper}>
-      <SearchBar onSubmit={handleSubmit} />
+      <Header />
 
       <ErrorHandler error={error} />
 
-      {isLoading ? <LoadingSpinner /> : <GifGrid gifs={gifs} />}
+      {isLoading ? <LoadingSpinner /> : <GifGrid />}
     </Box>
   );
 };

@@ -1,18 +1,21 @@
-import { Container, Grid } from "@mui/material";
-import { GifCard } from "..";
+import { Container, Box } from "@mui/material";
+import { GifCard } from "../";
+import { styles } from "./GifGrid.styles";
+import { useGifContext } from "../../context/useGifContext";
 
-export const GifGrid = ({ gifs }) => {
+export const GifGrid = () => {
+  const { state } = useGifContext();
+  const { gifs } = state;
+
   return (
-    <Container maxWidth="md" sx={{ mt: 5, pb: 10 }}>
-      <Grid container spacing={2}>
-        {gifs.map((gif) => {
-          return (
-            <Grid item xs={12} sm={6} md={4} key={gif.id}>
-              <GifCard id={gif.id} url={gif.url} />
-            </Grid>
-          );
-        })}
-      </Grid>
+    <Container maxWidth="lg" sx={styles.container}>
+      <Box sx={styles.grid}>
+        {gifs.map((gif) => (
+          <Box key={gif.id} sx={styles.item}>
+            <GifCard url={gif.url} />
+          </Box>
+        ))}
+      </Box>
     </Container>
   );
 };
