@@ -2,7 +2,7 @@ import { useTheme } from "@mui/material/styles";
 import { TextField, InputAdornment } from "@mui/material";
 import { Search } from "@mui/icons-material";
 import { useGifContext } from "../../context/useGifContext";
-import { setSearchTerm, fetchGifs } from "../../context/actions";
+import { setSearchTerm, searchGifs } from "../../context/actions";
 import { styles } from "./SearchBar.styles";
 
 export const SearchBar = () => {
@@ -16,7 +16,7 @@ export const SearchBar = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    fetchGifs(dispatch, searchTerm);
+    searchGifs(dispatch, searchTerm);
   };
 
   return (

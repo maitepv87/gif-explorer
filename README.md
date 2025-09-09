@@ -2,16 +2,17 @@
 
 ## **Description**
 
-GIF Explorer is a **fast and interactive** React application that allows users to **search, view, and favorite animated GIFs** using the Giphy API. It follows best practices in frontend development, leveraging **Context API for global state management**, `useMemo` and `useCallback` for **performance optimization**, and **responsive UI components** built with Material UI.
+GIF Explorer is a **fast and interactive** React application that allows users to **search and view animated GIFs** using the Giphy API.  
+It follows modern frontend best practices, leveraging the **Context API** for global state management and **responsive UI components** built with Material UI.
+
+![App Screenshot](./src/assets/Screenshot_GIF.png)
 
 ### **Key Features**
 
 - **Efficient GIF search** powered by the Giphy API.
-- **Interactive GIF cards** with favorite toggles.
-- **Persistent favorites**, allowing users to save selections across sessions.
-- **Dark/light mode toggle** using ThemeContext.
-- **Optimized API handling** with Fetch.
-- **Modular and scalable architecture** for maintainability.
+- **Dark/light mode toggle** integrated with Material UI’s theming system.
+- **Optimized API handling** with the Fetch API and async state management.
+- **Modular and scalable architecture** for maintainability and reusability.
 
 This project is part of my portfolio to **demonstrate clean, scalable frontend development** using modern React techniques.
 
@@ -22,9 +23,6 @@ This project is part of my portfolio to **demonstrate clean, scalable frontend d
 - **Vite** – Fast build tool and development environment.
 - **Material UI** – Prebuilt UI components for a modern and responsive design.
 - **Fetch API** – Efficient HTTP requests for fetching GIFs.
-- **PropTypes** – Runtime validation for React components.
-- **React.memo** – Prevents unnecessary re-renders in list components.
-- **useMemo & useCallback** – Improves performance by optimizing function execution.
 
 ## **Getting Started**
 

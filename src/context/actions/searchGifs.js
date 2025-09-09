@@ -1,7 +1,7 @@
 import { formatGifData } from "../../utils";
 import { ACTION_TYPES } from "../actionTypes";
 
-export const fetchGifs = async (dispatch, searchTerm) => {
+export const searchGifs = async (dispatch, searchTerm) => {
   const term = searchTerm.trim();
   if (term.length <= 1) return;
 

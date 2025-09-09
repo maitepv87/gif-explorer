@@ -19,6 +19,11 @@ export const styles = {
   title: (theme) => ({
     fontWeight: 700,
     color: theme.palette.text.primary,
+    textDecoration: "none",
+    color: "inherit",
+    "&:hover": {
+      opacity: 0.8,
+    },
   }),
 
   githubButton: {

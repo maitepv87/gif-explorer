@@ -12,7 +12,7 @@ export const GifGrid = () => {
       <Box sx={styles.grid}>
         {gifs.map((gif) => (
           <Box key={gif.id} sx={styles.item}>
-            <GifCard url={gif.url} />
+            <GifCard url={gif.url} title={gif.title} giphyUrl={gif.giphyUrl} />
           </Box>
         ))}
       </Box>
