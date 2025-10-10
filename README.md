@@ -1,8 +1,9 @@
 # **GIF Explorer**
 
+GIF Explorer is a **fast and interactive** React application that allows users to **search and view animated GIFs** using the Giphy API.
+
 ## **Description**
 
-GIF Explorer is a **fast and interactive** React application that allows users to **search and view animated GIFs** using the Giphy API.  
 It follows modern frontend best practices, leveraging the **Context API** for global state management and **responsive UI components** built with Material UI.
 
 ![App Screenshot](./src/assets/Screenshot_GIF.png)

@@ -18,7 +18,7 @@ export const GifProvider = ({ children }) => {
 export const useGifContext = () => {
   const context = useContext(GifContext);
   if (!context) {
-    throw new Error("useGifContext should I use within a Gif Provider");
+    throw new Error("useGifContext must be used within a <GifProvider>");
   }
   return context;
 };
