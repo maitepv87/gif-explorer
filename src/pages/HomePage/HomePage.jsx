@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { Box } from "@mui/material";
 import {
-  GifGrid,
+  GifList,
   LoadingSpinner,
-  ErrorHandler,
+  ErrorMessage,
   Header,
 } from "../../components";
 import { useGifContext } from "../../context/useGifContext";
@@ -21,8 +21,8 @@ export const HomePage = () => {
   return (
     <Box sx={styles.wrapper}>
       <Header />
-      <ErrorHandler error={error} />
-      {isLoading ? <LoadingSpinner /> : <GifGrid />}
+      <ErrorMessage error={error} />
+      {isLoading ? <LoadingSpinner /> : <GifList />}
     </Box>
   );
 };

@@ -1,9 +1,9 @@
 import { Snackbar, Alert } from "@mui/material";
 import { useState, useEffect, useMemo } from "react";
 import { useTheme } from "@mui/material/styles";
-import { styles } from "./ErrorHandler.styles";
+import { styles } from "./ErrorMessage.styles";
 
-export const ErrorHandler = ({ error }) => {
+export const ErrorMessage = ({ error }) => {
   const theme = useTheme();
   const [open, setOpen] = useState(!!error);
 

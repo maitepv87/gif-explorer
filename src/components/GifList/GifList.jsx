@@ -1,9 +1,9 @@
 import { Container, Box } from "@mui/material";
-import { GifCard } from "../";
-import { styles } from "./GifGrid.styles";
+import { GifCard } from "..";
+import { styles } from "./GifList.styles";
 import { useGifContext } from "../../context/useGifContext";
 
-export const GifGrid = () => {
+export const GifList = () => {
   const { state } = useGifContext();
   const { gifs } = state;
 
