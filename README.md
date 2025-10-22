@@ -1,7 +1,6 @@
 # **GIF Explorer**
 
 A fast and modular React app to search and save animated GIFs using the Giphy API.
-_Built for onboarding clarity, UI empathy, and scalable architecture._
 
 ![App Screenshot](./src/assets/Screenshot_GIF.png)
 
