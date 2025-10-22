@@ -41,7 +41,6 @@ This project is part of my portfolio to **demonstrate clean, maintainable fronte
 - **Context API:** Lightweight global state management
 - **Material UI:** Accessible, responsive UI components
 - **Fetch API:** Async data fetching from Giphy
-- **PropTypes:** Runtime props validation
 - **useMemo & useCallback:** Performance optimization for rendering
 
 ---

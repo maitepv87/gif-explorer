@@ -1,5 +1,5 @@
 export * from "./EmptyState/EmptyState";
-export * from "./ErrorMessage/ErrorMessage";
+export * from "./ErrorBanner/ErrorBanner";
 export * from "./GifCard/GifCard";
 export * from "./GifList/GifList";
 export * from "./Header/Header";
