@@ -1,11 +1,20 @@
 import { Container, Box } from "@mui/material";
-import { GifCard } from "..";
+import { EmptyState, GifCard } from "..";
 import { styles } from "./GifList.styles";
 import { useGifContext } from "../../context/useGifContext";
 
 export const GifList = () => {
   const { state } = useGifContext();
   const { gifs } = state;
+
+  if (gifs.length === 0 && state.searchTerm.trim().length > 1) {
+    return (
+      <EmptyState
+        title="No GIFs found"
+        message={`No results for "${state.searchTerm}". Try something joyful or silly.`}
+      />
+    );
+  }
 
   return (
     <Container maxWidth="lg" sx={styles.container}>

@@ -1,3 +1,4 @@
+export * from "./EmptyState/EmptyState";
 export * from "./ErrorMessage/ErrorMessage";
 export * from "./GifCard/GifCard";
 export * from "./GifList/GifList";

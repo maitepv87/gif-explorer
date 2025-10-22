@@ -18,11 +18,13 @@ export const HomePage = () => {
     loadTrending(dispatch);
   }, [dispatch]);
 
+  if (isLoading) return <LoadingSpinner />;
+  if (error) return <ErrorMessage message={error} />;
+
   return (
     <Box sx={styles.wrapper}>
       <Header />
-      <ErrorMessage error={error} />
-      {isLoading ? <LoadingSpinner /> : <GifList />}
+      <GifList />
     </Box>
   );
 };
